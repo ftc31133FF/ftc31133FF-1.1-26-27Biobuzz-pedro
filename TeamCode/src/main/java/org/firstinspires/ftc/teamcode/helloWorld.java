@@ -11,6 +11,6 @@ public class helloWorld extends OpMode {
 
     @Override
     public void loop() {
-        telemetry.addLine("Hell World!");
+        telemetry.addLine("Hello World!");
     }
 }
