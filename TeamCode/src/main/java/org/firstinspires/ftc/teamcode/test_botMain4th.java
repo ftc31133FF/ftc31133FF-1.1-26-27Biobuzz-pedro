@@ -18,25 +18,12 @@ public class test_botMain4th extends OpMode {
     double pivot;
     boolean takeIn;
     boolean takeOut;
-
-    double b_l_drivepower;
-    double b_r_drivepower;
-    double f_l_drivepower;
-    double f_r_drivepower;
-    double targetAngle = 0;
-    double KP = 0.032;
-    double error = 0;
-    double lastError = 0;
-    double angleTolerance = .5;
-    double KD = 0.0018; //0.0020
-    double curTime = 0;
-    double lastTime = 0;
-    double curHeading;
-    double maxdrivespeed = 1.0;
-    double intakePower = 0.0;
-
-    double[] stepsizes = {1.0, 0.1, 0.001, 0.0001};
-    int stepIndex = 2;
+    double b_l_drivePower;
+    double b_r_drivePower;
+    double f_l_drivePower;
+    double f_r_drivePower;
+    double maxDriveSpeed = 1.0;
+    double intakePower;
 
 
     @Override
@@ -79,36 +66,34 @@ public class test_botMain4th extends OpMode {
 
 
         if (gamepad1.aWasPressed()) {
-            if ( maxdrivespeed < 1.0) {
-                maxdrivespeed = 1.0;
+            if ( maxDriveSpeed < 1.0) {
+                maxDriveSpeed = 1.0;
             }
             else {
-                maxdrivespeed = 0.5;
+                maxDriveSpeed = 0.5;
             }
         }
-        b_l_drivepower = (vertical - pivot  + horizontal) * maxdrivespeed;
-        b_r_drivepower = (vertical + pivot  - horizontal) * maxdrivespeed;
-        f_l_drivepower = (vertical - pivot  - horizontal) * maxdrivespeed;
-        f_r_drivepower = (vertical + pivot  + horizontal) * maxdrivespeed;
-        if (takeIn == true)
-        {
+        b_l_drivePower = (vertical - pivot  + horizontal) * maxDriveSpeed;
+        b_r_drivePower = (vertical + pivot  - horizontal) * maxDriveSpeed;
+        f_l_drivePower = (vertical - pivot  - horizontal) * maxDriveSpeed;
+        f_r_drivePower = (vertical + pivot  + horizontal) * maxDriveSpeed;
+
+
+        if (takeIn) {
             intakePower = 0.7;
         }
-        else if (takeOut == true)
-        {
+        else if (takeOut) {
             intakePower = -0.7;
         }
-        else
-        {
+        else {
             intakePower = 0;
         }
 
 
-        b_l_drive.setPower(b_l_drivepower);
-        b_r_drive.setPower(b_r_drivepower);
-        f_l_drive.setPower(f_l_drivepower);
-        f_r_drive.setPower(f_r_drivepower);
-        intake.setPower(intakePower);
+        b_l_drive.setPower(b_l_drivePower);
+        b_r_drive.setPower(b_r_drivePower);
+        f_l_drive.setPower(f_l_drivePower);
+        f_r_drive.setPower(f_r_drivePower);
         intake.setPower(intakePower);
 
     }
