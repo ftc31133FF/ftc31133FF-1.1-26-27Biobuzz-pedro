@@ -19,12 +19,13 @@ public class Constants {
 
 
     public static FollowerConstants followerConstants = new FollowerConstants()
-            .mass(7.983226)
-            .forwardZeroPowerAcceleration(-31.113625787979135)
-            .lateralZeroPowerAcceleration(-55.63333943825847)
-            .translationalPIDFCoefficients(new PIDFCoefficients(.12,0,.015, .0115))
-            .headingPIDFCoefficients(new PIDFCoefficients(.65, 0, .08, .02))
-            .drivePIDFCoefficients(new FilteredPIDFCoefficients(.6, 0, .0002, .6, .02))
+            .mass(7)
+            //7.983226 old mass
+            .forwardZeroPowerAcceleration(-32.27066)
+            .lateralZeroPowerAcceleration(-43.93632)
+            .translationalPIDFCoefficients(new PIDFCoefficients(.1,0,.008, .0115))
+            .headingPIDFCoefficients(new PIDFCoefficients(.6, 0, .05, .02))
+            //.drivePIDFCoefficients(new FilteredPIDFCoefficients(.6, 0, .0002, .6, .02))
             //.predictiveBrakingCoefficients(new PredictiveBrakingCoefficients(kP, kLinear, kQuadratic))
             /*
 
@@ -32,16 +33,16 @@ public class Constants {
             ;
     public static MecanumConstants driveConstants = new MecanumConstants()
             .maxPower(1)
-            .rightFrontMotorName("frdrive")
-            .rightRearMotorName("brdrive")
-            .leftRearMotorName("bldrive")
-            .leftFrontMotorName("fldrive")
-            .leftFrontMotorDirection(DcMotorSimple.Direction.REVERSE)
-            .leftRearMotorDirection(DcMotorSimple.Direction.REVERSE)
-            .rightFrontMotorDirection(DcMotorSimple.Direction.FORWARD)
-            .rightRearMotorDirection(DcMotorSimple.Direction.FORWARD)
-            .xVelocity(90.79039854515256)
-            .yVelocity(66.35672117218259)
+            .rightFrontMotorName("f-r-drive")
+            .rightRearMotorName("b-r-drive")
+            .leftRearMotorName("b-l-drive")
+            .leftFrontMotorName("f-l-drive")
+            .leftFrontMotorDirection(DcMotorSimple.Direction.FORWARD)
+            .leftRearMotorDirection(DcMotorSimple.Direction.FORWARD)
+            .rightFrontMotorDirection(DcMotorSimple.Direction.REVERSE)
+            .rightRearMotorDirection(DcMotorSimple.Direction.REVERSE)
+            .xVelocity(79.50454880121185)
+            .yVelocity(48.09418205201156)
 
             ;
 

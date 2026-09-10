@@ -60,28 +60,28 @@ public class testauto extends OpMode {
                 .addPath(
                         new BezierLine(
                                 new Pose(24.000, 24.000),
-                                new Pose(123.615, 24.000)
+                                new Pose(120, 24.000)
                         )
                 )
                 .setLinearHeadingInterpolation(Math.toRadians(0), Math.toRadians(0))
                 .addPath(
                         new BezierLine(
-                                new Pose(123.615, 24.000),
-                                new Pose(124.603, 118.183)
+                                new Pose(120, 24.000),
+                                new Pose(120, 124)
                         )
                 )
                 .setLinearHeadingInterpolation(Math.toRadians(0), Math.toRadians(0))
                 .addPath(
                         new BezierLine(
-                                new Pose(124.603, 118.183),
-                                new Pose(25.079, 120.396)
+                                new Pose(120, 120),
+                                new Pose(24, 120)
                         )
                 )
                 .setLinearHeadingInterpolation(Math.toRadians(0), Math.toRadians(0))
                 .addPath(
                         new BezierLine(
-                                new Pose(25.079, 120.396),
-                                new Pose(23.914, 24.263)
+                                new Pose(24, 120.396),
+                                new Pose(24, 24)
                         )
                 )
                 .setLinearHeadingInterpolation(Math.toRadians(0), Math.toRadians(0))
