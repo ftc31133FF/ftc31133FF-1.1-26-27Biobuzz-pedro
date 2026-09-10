@@ -43,7 +43,7 @@ public class testauto extends OpMode {
     private final Pose checkPoint = new Pose(24, 72, Math.toRadians(135));
     private final Pose endPose = new Pose(75, 120, Math.toRadians(270));
 
-    private PathChain driveOne;
+    private PathChain driveOne, MainChain;
 
     public DcMotorEx intake;
 
@@ -56,12 +56,42 @@ public class testauto extends OpMode {
                 .addPath(new BezierLine(checkPoint, endPose))
                 .setLinearHeadingInterpolation(checkPoint.getHeading(), endPose.getHeading())
                 .build();
+        MainChain = follower.pathBuilder()
+                .addPath(
+                        new BezierLine(
+                                new Pose(24.000, 24.000),
+                                new Pose(123.615, 24.000)
+                        )
+                )
+                .setLinearHeadingInterpolation(Math.toRadians(0), Math.toRadians(0))
+                .addPath(
+                        new BezierLine(
+                                new Pose(123.615, 24.000),
+                                new Pose(124.603, 118.183)
+                        )
+                )
+                .setLinearHeadingInterpolation(Math.toRadians(0), Math.toRadians(0))
+                .addPath(
+                        new BezierLine(
+                                new Pose(124.603, 118.183),
+                                new Pose(25.079, 120.396)
+                        )
+                )
+                .setLinearHeadingInterpolation(Math.toRadians(0), Math.toRadians(0))
+                .addPath(
+                        new BezierLine(
+                                new Pose(25.079, 120.396),
+                                new Pose(23.914, 24.263)
+                        )
+                )
+                .setLinearHeadingInterpolation(Math.toRadians(0), Math.toRadians(0))
+                .build();
     }
 
     public void statePathUpdate() {
         switch(pathState) {
             case DRIVE:
-                follower.followPath(driveOne, true);
+                follower.followPath(MainChain, true);
                 setPathState(PathState.END);
                 break;
             case END:
