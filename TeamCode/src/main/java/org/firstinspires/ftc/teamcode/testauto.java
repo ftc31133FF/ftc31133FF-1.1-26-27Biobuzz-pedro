@@ -146,6 +146,636 @@ public class testauto extends OpMode {
                         new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
                 ))
                 .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+                .addPath(new BezierCurve(
+                        new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY()), bottomRight, new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomRight.getX(), bottomRight.getY() + cornerRadius), new Pose(topRight.getX(), topRight.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topRight.getX(), topRight.getY() - cornerRadius), topRight, new Pose(topRight.getX() - cornerRadius, topRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topRight.getX() - cornerRadius, topRight.getY()), new Pose(topLeft.getX() + cornerRadius, topLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(topLeft.getX() + cornerRadius, topLeft.getY()), topLeft, new Pose(topLeft.getX(), topLeft.getY() - cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(topLeft.getX(), topLeft.getY() - cornerRadius), new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius)
+                ))
+                .setTangentHeadingInterpolation()
+
+
+
+                .addPath(new BezierCurve(
+                        new Pose(bottomLeft.getX(), bottomLeft.getY() + cornerRadius), bottomLeft, new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY())
+                ))
+                .setTangentHeadingInterpolation()
+
+                .addPath(new BezierLine(
+                        new Pose(bottomLeft.getX() + cornerRadius, bottomLeft.getY()), new Pose(bottomRight.getX() - cornerRadius, bottomRight.getY())
+                ))
+                .setTangentHeadingInterpolation()
 
                 .build();
     }
@@ -154,7 +784,8 @@ public class testauto extends OpMode {
         switch(pathState) {
             case DRIVE:
                 follower.followPath(initialLineUp, true);
-                follower.followPath(MainChain, true);
+                follower.followPath(MainChainButFancy, true);
+
                 setPathState(PathState.END);
                 break;
             case END:

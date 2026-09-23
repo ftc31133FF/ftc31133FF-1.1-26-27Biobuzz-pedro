@@ -12,12 +12,15 @@ public class test_botMain4th extends OpMode {
     public DcMotor b_r_drive;
     public DcMotor f_l_drive;
     public DcMotor f_r_drive;
+    public DcMotor shoota;
     public DcMotor intake;
     double vertical;
     double horizontal;
     double pivot;
     boolean takeIn;
+    boolean shootaToggle;
     boolean takeOut;
+    double shootaPowwa;
     double b_l_drivePower;
     double b_r_drivePower;
     double f_l_drivePower;
@@ -46,8 +49,15 @@ public class test_botMain4th extends OpMode {
         f_r_drive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         f_l_drive.setDirection(DcMotor.Direction.REVERSE);
 
+
         intake = hardwareMap.get(DcMotor.class, "intakeMotor");
         intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        shoota = hardwareMap.get(DcMotor.class, "shoota");
+        shoota.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        shoota.setDirection(DcMotor.Direction.REVERSE);
+
+
 
     }
 
@@ -65,6 +75,7 @@ public class test_botMain4th extends OpMode {
 
 
 
+
         if (gamepad1.aWasPressed()) {
             if ( maxDriveSpeed < 1.0) {
                 maxDriveSpeed = 1.0;
@@ -73,6 +84,25 @@ public class test_botMain4th extends OpMode {
                 maxDriveSpeed = 0.5;
             }
         }
+
+
+
+        if ((!shootaToggle) && gamepad1.dpad_down)
+        {
+            if (shootaPowwa < 0.9)
+            {
+                shootaPowwa = 0.9;
+            }
+            else
+            {
+                shootaPowwa = 0.0;
+            }
+        }
+
+        shootaToggle = gamepad1.dpad_down;
+
+
+
         b_l_drivePower = (vertical - pivot  + horizontal) * maxDriveSpeed;
         b_r_drivePower = (vertical + pivot  - horizontal) * maxDriveSpeed;
         f_l_drivePower = (vertical - pivot  - horizontal) * maxDriveSpeed;
@@ -94,6 +124,7 @@ public class test_botMain4th extends OpMode {
         b_r_drive.setPower(b_r_drivePower);
         f_l_drive.setPower(f_l_drivePower);
         f_r_drive.setPower(f_r_drivePower);
+        shoota.setPower(shootaPowwa);
         intake.setPower(intakePower);
 
     }
