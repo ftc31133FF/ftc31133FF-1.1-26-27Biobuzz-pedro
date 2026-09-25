@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 
 @TeleOp
@@ -14,6 +15,8 @@ public class test_botMain4th extends OpMode {
     public DcMotor f_r_drive;
     public DcMotor shoota;
     public DcMotor intake;
+    public DcMotor transferMotor;
+    public Servo gate;
     double vertical;
     double horizontal;
     double pivot;
@@ -27,6 +30,8 @@ public class test_botMain4th extends OpMode {
     double f_r_drivePower;
     double maxDriveSpeed = 1.0;
     double intakePower;
+    double transferPower;
+    double gatePosition;
 
 
     @Override
@@ -53,9 +58,15 @@ public class test_botMain4th extends OpMode {
         intake = hardwareMap.get(DcMotor.class, "intakeMotor");
         intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
+        transferMotor = hardwareMap.get(DcMotor.class, "transferMotor");
+        transferMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        transferMotor.setDirection(DcMotor.Direction.REVERSE);
+
         shoota = hardwareMap.get(DcMotor.class, "shoota");
         shoota.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         shoota.setDirection(DcMotor.Direction.REVERSE);
+
+        gate = hardwareMap.get(Servo.class, "gateServo");
 
 
 
@@ -111,14 +122,23 @@ public class test_botMain4th extends OpMode {
 
         if (takeIn) {
             intakePower = 0.7;
+            transferPower = 0.7;
         }
         else if (takeOut) {
             intakePower = -0.7;
+            transferPower = -0.7;
         }
         else {
             intakePower = 0;
+            transferPower = 0;
         }
 
+        if (gamepad1.right_trigger < .8){
+            gatePosition =.62;
+        }
+        else{
+            gatePosition =.25;
+        }
 
         b_l_drive.setPower(b_l_drivePower);
         b_r_drive.setPower(b_r_drivePower);
@@ -126,6 +146,8 @@ public class test_botMain4th extends OpMode {
         f_r_drive.setPower(f_r_drivePower);
         shoota.setPower(shootaPowwa);
         intake.setPower(intakePower);
+        transferMotor.setPower(transferPower);
+        gate.setPosition(gatePosition);
 
     }
 }
