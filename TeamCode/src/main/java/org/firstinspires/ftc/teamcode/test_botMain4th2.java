@@ -132,13 +132,13 @@ public class test_botMain4th2 extends OpMode {
             transferPower = 0;
         }
 
-        if (gamepad1.right_trigger < .8){
-            gatePosition =.62;
+        if (gamepad1.right_trigger > .2){
+            gatePosition =.25;
             intakePower = 0.7;
             transferPower = 0.7;
         }
         else{
-            gatePosition =.25;
+            gatePosition =.62;
         }
 
 
@@ -160,6 +160,14 @@ public class test_botMain4th2 extends OpMode {
 
         if (gamepad2.dpadDownWasPressed()) {
             P -= stepsizes[stepindex];
+        }
+
+        if (gamepad2.yWasPressed()) {
+            shootaPowwa += 10;
+        }
+
+        if (gamepad2.aWasPressed()) {
+            shootaPowwa -= 10;
         }
 
 
