@@ -19,7 +19,7 @@ public class Constants {
 
 
     public static FollowerConstants followerConstants = new FollowerConstants()
-            .mass(7)
+            .mass(9)
             //7.983226 old mass
             .forwardZeroPowerAcceleration(-32.27066)
             .lateralZeroPowerAcceleration(-43.93632)
@@ -47,8 +47,8 @@ public class Constants {
             ;
 
     public static PinpointConstants localizerConstants = new PinpointConstants()
-            .forwardPodY(2.99213) //76
-            .strafePodX(-5.66929) //-144
+            .forwardPodY(2.83464567) //72
+            .strafePodX(-0.94488189) //-24
             .distanceUnit(DistanceUnit.INCH)
             .hardwareMapName("pinpoint")
             .encoderResolution(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD)
