@@ -25,7 +25,7 @@ public class test_botMain4th2 extends OpMode {
     boolean takeIn;
     boolean takeOut;
     double shootaPowwa;
-    double shootaSpeedy = 1200;
+    double shootaSpeedy = 2010;
     double b_l_drivePower;
     double b_r_drivePower;
     double f_l_drivePower;
@@ -38,8 +38,8 @@ public class test_botMain4th2 extends OpMode {
 
 
 
-    double F = 0;
-    double P = 0;
+    double F = 12.6;
+    double P = 7.5;
     double[] stepsizes = {10.0, 1.0, 0.1, 0.001, 0.0001};
     int stepindex = 1;
 
@@ -134,8 +134,8 @@ public class test_botMain4th2 extends OpMode {
 
         if (gamepad1.right_trigger > .2){
             gatePosition =.25;
-            intakePower = 0.7;
-            transferPower = 0.7;
+            intakePower = 0.5;
+            transferPower = 0.4;
         }
         else{
             gatePosition =.62;
