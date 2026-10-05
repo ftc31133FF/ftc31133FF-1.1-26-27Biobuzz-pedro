@@ -74,6 +74,7 @@ public class test_botMain4th2 extends OpMode {
         shoota = hardwareMap.get(DcMotorEx.class, "shoota");
         shoota.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         shoota.setDirection(DcMotor.Direction.REVERSE);
+        shoota.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         PIDFCoefficients shootaPID = new PIDFCoefficients(P, 0, 0, F);
         shoota.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, shootaPID);
 
@@ -199,6 +200,7 @@ public class test_botMain4th2 extends OpMode {
         telemetry.addData("intake speed", intakePower);
         telemetry.addData("transfer speed", transferPower);
         telemetry.addLine("-----------------------------------");
+        telemetry.update();
     }
 }
 
