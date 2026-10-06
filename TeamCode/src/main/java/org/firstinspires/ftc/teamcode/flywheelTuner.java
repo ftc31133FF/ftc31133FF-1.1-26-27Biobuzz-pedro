@@ -6,8 +6,10 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.CurrentUnit;
 
@@ -19,18 +21,23 @@ public class flywheelTuner extends OpMode {
     public DcMotor intake;
     public DcMotor transfer;
     public Servo gate;
+    private ElapsedTime timer = new ElapsedTime();
+    private ElapsedTime velocityTimer = new ElapsedTime();
     double targetPower;
-    double onSpeed = 2010;
+    double onSpeed = 1550;
     double intakePower;
     double transferPower;
     double gatePosition;
+    boolean shootaOn;
+    int lastPos = 0;
+    double curVel = 0;
 
     private TelemetryManager telemetryM;
 
 
-    double F = 12.6;
-    double P = 7.5;
-    double[] stepsizes = {10.0, 1.0, 0.1, 0.001, 0.0001};
+    double F = 11.6;
+    double P = 0;
+    double[] stepsizes = {10.0, 1.0, 0.1, 0.001, 0.0001, 0.00001};
     int stepindex = 1;
 
     @Override
@@ -43,15 +50,18 @@ public class flywheelTuner extends OpMode {
         transfer.setDirection(DcMotor.Direction.REVERSE);
 
         shoota = hardwareMap.get(DcMotorEx.class, "shoota");
-        shoota.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        shoota.setDirection(DcMotor.Direction.REVERSE);
+        shoota.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        shoota.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        shoota.setDirection(DcMotor.Direction.FORWARD);
         shoota.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        PIDFCoefficients shootaPID = new PIDFCoefficients(P, 0, 0, F);
-        shoota.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, shootaPID);
 
         gate = hardwareMap.get(Servo.class, "gateServo");
 
         telemetryM = PanelsTelemetry.INSTANCE.getTelemetry();
+    }
+    public void start() {
+        timer.reset();
+        velocityTimer.reset();
     }
 
     @Override
@@ -59,14 +69,28 @@ public class flywheelTuner extends OpMode {
 
 
         if (gamepad1.dpadDownWasPressed()) {
-            if (!(targetPower == onSpeed)) {
-                targetPower = onSpeed;
+            if (shootaOn) {
+                shootaOn = false;
             }
             else {
-                targetPower = 0.0;
+                shootaOn = true;
             }
         }
+        int curPos = shoota.getCurrentPosition();
+        double deltaTime = velocityTimer.seconds();
 
+        if (deltaTime > 0.005) { // Protect against division by zero (e.g., 5ms minimum interval)
+            int deltaTicks = curPos - lastPos;
+            curVel = deltaTicks / deltaTime;
+
+            // Reset for next loop iteration
+            lastPos = curPos;
+            velocityTimer.reset();
+        }
+
+        curVel = shoota.getVelocity();
+        double error = targetPower - curVel;
+        double V = shoota.getCurrent(CurrentUnit.AMPS);
         //-------------------------------------------------------------------------------------------------------
 
         if (gamepad1.right_bumper) {
@@ -119,19 +143,28 @@ public class flywheelTuner extends OpMode {
 
         if (gamepad2.yWasPressed()) {
             onSpeed += 10;
+            targetPower += 10;
         }
 
         if (gamepad2.aWasPressed()) {
             onSpeed -= 10;
+            targetPower -= 10;
         }
 
 
-        PIDFCoefficients shootaPID = new PIDFCoefficients(P, 0, 0, F);
-        shoota.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, shootaPID);
-        shoota.setVelocity(targetPower);
+        double feedForwardTerm = targetPower * F;
+        double feedbackTerm = error * P;
+        double motorPower = feedForwardTerm + feedbackTerm;
 
-        double curVel = shoota.getVelocity();
-        double V = shoota.getCurrent(CurrentUnit.AMPS);
+        if (motorPower > 1.0) motorPower = 1.0;
+        else if (motorPower < -1.0) motorPower = -1.0;
+
+        if (shootaOn) {
+            shoota.setPower(targetPower);
+        }
+        else {
+            shoota.setPower(0);
+        }
 
 
         telemetry.addData("target power", targetPower);
@@ -140,9 +173,9 @@ public class flywheelTuner extends OpMode {
         telemetry.addData("current voltage", V);
         telemetry.addData("Error", "%.6f", targetPower - curVel);
         telemetry.addLine("-----------------------------------");
-        telemetry.addData("P tune", "%.4f (D-Pad U/D)", P);
-        telemetry.addData("F tune", "%.4f (D-Pad L/R)", F);
-        telemetry.addData("step size", "%.4f (B Button)", stepsizes[stepindex]);
+        telemetry.addData("P tune", "%.6f (D-Pad U/D)", P);
+        telemetry.addData("F tune", "%.5f (D-Pad L/R)(round 0.0041 i think)", F);
+        telemetry.addData("step size", "%.5f (B Button)", stepsizes[stepindex]);
         telemetry.addLine("-----------------------------------");
         telemetry.addData("gate position", gate.getPosition());
         telemetry.addData("intake speed", intakePower);
@@ -168,13 +201,9 @@ public class flywheelTuner extends OpMode {
     private DcMotorEx flywheelMotor;
     private ElapsedTime timer = new ElapsedTime();
 
-    // Tuning Gains
-    // 1. Set kP to 0, adjust kF until measured velocity matches target.
-    // 2. Add kP to quickly correct drops when game pieces enter the mechanism.
     public static double kF = 0.00035;
     public static double kP = 0.00080;
 
-    // Target Velocity in encoder ticks per second
     public static double TARGET_VELOCITY = 2200.0;
 
     @Override
@@ -187,9 +216,6 @@ public class flywheelTuner extends OpMode {
         // Custom math uses raw setPower, but requires encoder readings
         flywheelMotor.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
         flywheelMotor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.FLOAT);
-
-        telemetry.addData("Status", "Initialized");
-        telemetry.update();
 
         waitForStart();
         timer.reset();
@@ -214,4 +240,25 @@ public class flywheelTuner extends OpMode {
             } else {
                 flywheelMotor.setPower(0);
             }
+
+
+
+private DcMotorEx shooterMotor;
+private ElapsedTime velocityTimer = new ElapsedTime();
+private int lastPosition = 0;
+private double currentVelocity = 0; // Ticks per second
+
+
+int currentPosition = shooterMotor.getCurrentPosition();
+double deltaTime = velocityTimer.seconds();
+
+if (deltaTime > 0.005) { // Protect against division by zero (e.g., 5ms minimum interval)
+    int deltaTicks = currentPosition - lastPosition;
+    currentVelocity = deltaTicks / deltaTime;
+
+    // Reset for next loop iteration
+    lastPosition = currentPosition;
+    velocityTimer.reset();
+}
+
  */
