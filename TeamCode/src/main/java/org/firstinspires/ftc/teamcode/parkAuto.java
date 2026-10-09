@@ -2,6 +2,10 @@ package org.firstinspires.ftc.teamcode;
 
 import static android.os.SystemClock.sleep;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.linearOpMode;
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -11,7 +15,7 @@ import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
-public class parkAuto extends OpMode {
+public class parkAuto extends LinearOpMode {
 
     public DcMotor b_l_drive;
     public DcMotor b_r_drive;
@@ -23,7 +27,7 @@ public class parkAuto extends OpMode {
     double f_r_drivePower;
 
     @Override
-    public void init() {
+    public void runOpMode() {
         b_l_drive = hardwareMap.get(DcMotor.class, "b-l-drive");
         b_l_drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         b_l_drive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -41,23 +45,19 @@ public class parkAuto extends OpMode {
         f_r_drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         f_r_drive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         f_l_drive.setDirection(DcMotor.Direction.REVERSE);
-    }
-    public void loop() {
-        b_l_drivePower = -.5;
-        b_r_drivePower = .5;
-        f_l_drivePower = .5;
-        f_r_drivePower = -.5;
-        sleep(3000);
-        b_l_drivePower = .5;
-        b_r_drivePower = -.5;
-        f_l_drivePower = -.5;
-        f_r_drivePower = .5;
-        sleep(3010);
-        b_l_drivePower = 0;
-        b_r_drivePower = 0;
-        f_l_drivePower = 0;
-        f_r_drivePower = 0;
 
+        waitForStart();
 
+        if (opModeIsActive()) {
+            b_l_drive.setPower(.5);
+            b_r_drive.setPower(.5);
+            f_l_drive.setPower(.5);
+            f_r_drive.setPower(.5);
+            sleep(1200);
+            b_l_drive.setPower(0);
+            b_r_drive.setPower(0);
+            f_l_drive.setPower(0);
+            f_r_drive.setPower(0);
+        }
     }
 }

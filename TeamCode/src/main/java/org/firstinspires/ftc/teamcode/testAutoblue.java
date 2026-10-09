@@ -4,7 +4,7 @@ package org.firstinspires.ftc.teamcode;
 import com.bylazar.telemetry.PanelsTelemetry;
 import com.bylazar.telemetry.TelemetryManager;
 import com.pedropathing.follower.Follower;
-import com.pedropathing.geometry.BezierCurve;
+//import com.pedropathing.geometry.BezierCurve;
 import com.pedropathing.geometry.BezierLine;
 import com.pedropathing.geometry.Pose;
 import com.pedropathing.paths.PathChain;
@@ -45,16 +45,7 @@ public class testAutoblue extends OpMode {
 
  */
     private final Pose startPose = new Pose(9, 105, Math.toRadians(90));
-
-    private final double boxRadius = 54;
-    public final double cornerRadius = 36;
-    private final Pose bottomRight = new Pose(72 + boxRadius, 72 - boxRadius, Math.toRadians(0));
-    private final Pose topRight = new Pose(72 + boxRadius, 72 + boxRadius, Math.toRadians(0));
-    private final Pose topLeft = new Pose(72 - boxRadius, 72 + boxRadius, Math.toRadians(0));
-    private final Pose bottomLeft = new Pose(72 - boxRadius, 72 - boxRadius, Math.toRadians(0));
-
-    private PathChain driveOne, MainChain, initialLineUp, MainChainButFancy;
-
+    private PathChain  MainChain, initialLineUp;
     public DcMotorEx intake;
 
 
@@ -169,7 +160,7 @@ public class testAutoblue extends OpMode {
         telemetryM.addData("path state", pathState.toString());
         telemetryM.addData("cur X", follower.getPose().getX());
         telemetryM.addData("cur Y", follower.getPose().getY());
-        telemetryM.addData("cur heading", follower.getPose().getHeading());
+        telemetryM.addData("cur heading", Math.toDegrees(follower.getPose().getHeading()));
         telemetryM.addData("path timer", pathTimer.getElapsedTimeSeconds());
 
     }

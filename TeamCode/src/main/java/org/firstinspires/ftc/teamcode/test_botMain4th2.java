@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -25,7 +26,7 @@ public class test_botMain4th2 extends OpMode {
     boolean takeIn;
     boolean takeOut;
     double shootaPowwa;
-    double shootaSpeedy = 2010;
+    double shootaSpeedy = 1550;
     double b_l_drivePower;
     double b_r_drivePower;
     double f_l_drivePower;
@@ -38,8 +39,8 @@ public class test_botMain4th2 extends OpMode {
 
 
 
-    double F = 12.6;
-    double P = 7.5;
+    double F = 11.6;
+    double P = 0;
     double[] stepsizes = {10.0, 1.0, 0.1, 0.001, 0.0001};
     int stepindex = 1;
 
@@ -73,7 +74,7 @@ public class test_botMain4th2 extends OpMode {
 
         shoota = hardwareMap.get(DcMotorEx.class, "shoota");
         shoota.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        shoota.setDirection(DcMotor.Direction.REVERSE);
+        shoota.setDirection(DcMotor.Direction.FORWARD);
         shoota.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         PIDFCoefficients shootaPID = new PIDFCoefficients(P, 0, 0, F);
         shoota.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, shootaPID);
